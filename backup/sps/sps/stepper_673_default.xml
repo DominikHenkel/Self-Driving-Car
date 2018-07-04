@@ -1,0 +1,2083 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<WAGO-config>
+  <device-identification>
+    <art-no>0750-0673</art-no>
+    <description></description>
+    <sw-version>0x0000</sw-version>
+    <sw-date>1970-01-01</sw-date>
+    <hw-version>00</hw-version>
+  </device-identification>
+
+  <parameter-list-setup size="512" byte-offset="0"/>
+
+  <config-param-list>
+    <config-param name="Acceleration_Stop_Fast" offset="46" bit-offset="0" data-type="INT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        30000      </value>
+      <range min="1.000000" max="32767.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_Stop_Fast]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_Stop_Fast]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Verzögerung für STOP-Betrieb]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Verzögerung für STOP-Betrieb]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_RampUp" offset="48" bit-offset="0" data-type="INT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1000      </value>
+      <range min="1.000000" max="32767.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_RampUp]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_RampUp]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Default Beschleunigung für Fahrbefehle]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Default Beschleunigung für Fahrbefehle]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_RampDown" offset="50" bit-offset="0" data-type="INT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1000      </value>
+      <range min="1.000000" max="32767.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_RampDown]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_RampDown]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Default Beschleunigung für Fahrbefehle]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Default Beschleunigung für Fahrbefehle]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_RampUp_Param" offset="52" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        300      </value>
+      <range min="0.000000" max="16777216.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_RampUp_Param]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_RampUp_Param]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Beschleunigungszeit oder -weg für lineare oder sinusförmige Beschleunigunsart]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Beschleunigungszeit oder -weg für lineare oder sinusförmige Beschleunigunsart]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_RampDown_Param" offset="56" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        300      </value>
+      <range min="0.000000" max="16777216.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_RampDown_Param]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_RampDown_Param]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Verzögerungszeit oder -weg für lineare oder sinusförmige Beschleunigungssart]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Verzögerungszeit oder -weg für lineare oder sinusförmige Beschleunigungssart]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_Modes.AccType" offset="60" bit-offset="0" data-type="BIT" no-of-elems="2" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="4">        2      </value>
+      <range min="0.000000" max="3.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_Modes.AccType]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_Modes.AccType]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Beschleunigungsart]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Beschleunigungsart]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_Mode.AccParam" offset="60" bit-offset="2" data-type="BIT" no-of-elems="2" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="3">        0      </value>
+      <range min="0.000000" max="3.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_Mode.AccParam]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_Mode.AccParam]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Beschleunigungsparameter]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Beschleunigungsparameter]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_Mode.DecType" offset="60" bit-offset="4" data-type="BIT" no-of-elems="2" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="4">        0      </value>
+      <range min="0.000000" max="3.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_Mode.DecType]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_Mode.DecType]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Verzögerungsart]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Verzögerungsart]]>      </comment>
+    </config-param>
+
+    <config-param name="Acceleration_Mode.DecParam" offset="60" bit-offset="6" data-type="BIT" no-of-elems="2" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="3">        0      </value>
+      <range min="0.000000" max="3.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Acceleration </function-group>
+      <description xml:lang="de">        <![CDATA[Acceleration_Mode.DecParam]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acceleration_Mode.DecParam]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Verzögerungsparameter]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Verzögerungsparameter]]>      </comment>
+    </config-param>
+
+    <config-param name="Drive_Range_Neg" offset="68" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        -8388607      </value>
+      <range min="-2147483648.000000" max="2147483647.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Range_Neg]]>      </description>
+      <description xml:lang="en">        <![CDATA[Range_Neg]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zulässiger Fahrbereich in negativer Richtung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zulässiger Fahrbereich in negativer Richtung]]>      </comment>
+    </config-param>
+
+    <config-param name="Drive_Range_Pos" offset="72" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        8388607      </value>
+      <range min="-2147483648.000000" max="2147483647.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Range_Pos]]>      </description>
+      <description xml:lang="en">        <![CDATA[Range_Pos]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zulässiger Fahrbereich in positiver Richtung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zulässiger Fahrbereich in positiver Richtung]]>      </comment>
+    </config-param>
+
+    <config-param name="Rotary_Axis_Period" offset="64" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777216.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Rotary_Axis_Period]]>      </description>
+      <description xml:lang="en">        <![CDATA[Rotary_Axis_Period]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Periode P für Rundachse; 0 für linearen Achse]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Periode P für Rundachse; 0 für linearen Achse]]>      </comment>
+    </config-param>
+
+    <config-param name="Speed" offset="40" bit-offset="0" data-type="INT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        3000      </value>
+      <range min="1.000000" max="25000.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Speed]]>      </description>
+      <description xml:lang="en">        <![CDATA[Speed]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Default Geschwindigkeit für Fahrkommandos über Mailbox]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Default Geschwindigkeit für Fahrkommandos über Mailbox]]>      </comment>
+    </config-param>
+
+    <config-param name="Speed_Limit" offset="42" bit-offset="0" data-type="INT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        25000      </value>
+      <range min="1.000000" max="25000.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Speed_Limit]]>      </description>
+      <description xml:lang="en">        <![CDATA[Speed_Limit]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Maximalgeschwindigkeit(1..25000); beim Überschreiten dieser Geschwindigkeit wird der Antrieb abgeschaltet]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Maximalgeschwindigkeit(1..25000); beim Überschreiten dieser Geschwindigkeit wird der Antrieb abgeschaltet]]>      </comment>
+    </config-param>
+
+    <config-param name="HwSwConfig.Program_AutoStart" offset="19" bit-offset="7" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="19">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[HwSwConfig.Program_AutoStart]]>      </description>
+      <description xml:lang="en">        <![CDATA[HwSwConfig.Program_AutoStart]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Aktivierung Fahrprogramm Autostart]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Aktivierung Fahrprogramm Autostart]]>      </comment>
+    </config-param>
+
+    <config-param name="HwSwConfig.Drive_Direction" offset="19" bit-offset="2" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[HwSwConfig.Drive_Direction]]>      </description>
+      <description xml:lang="en">        <![CDATA[HwSwConfig.Drive_Direction]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Invertierung der Drehrichtung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Invertierung der Drehrichtung]]>      </comment>
+    </config-param>
+
+    <config-param name="Camshaft_Ch9_Start" offset="88" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="-8388607.000000" max="8388607.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Camshaft_Ch9_Start]]>      </description>
+      <description xml:lang="en">        <![CDATA[Camshaft_Ch9_Start]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Nockenwelle Kanal 9 Position Einschaltflanke]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Nockenwelle Kanal 9 Position Einschaltflanke]]>      </comment>
+    </config-param>
+
+    <config-param name="Camshaft_Ch9_Period" offset="92" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        100      </value>
+      <range min="1.000000" max="8388607.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Camshaft_Ch9_Period]]>      </description>
+      <description xml:lang="en">        <![CDATA[Camshaft_Ch9_Period]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Nockenwelle Kanal 9 Periode]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Nockenwelle Kanal 9 Periode]]>      </comment>
+    </config-param>
+
+    <config-param name="Camshaft_Ch9_Pulsewidth" offset="96" bit-offset="0" data-type="INT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        50      </value>
+      <range min="0.000000" max="8388607.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Camshaft_Ch9_Pulsewidth]]>      </description>
+      <description xml:lang="en">        <![CDATA[Camshaft_Ch9_Pulsewidth]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Nockenwelle Kanal 9 Pulsbreite]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Nockenwelle Kanal 9 Pulsbreite]]>      </comment>
+    </config-param>
+
+    <config-param name="Braketime_Turn_On" offset="100" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="1.000000" max="8388607.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Braketime_Turn_On]]>      </description>
+      <description xml:lang="en">        <![CDATA[Braketime_Turn_On]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Einschaltzeit der Bremse [ms]]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Einschaltzeit der Bremse [ms]]]>      </comment>
+    </config-param>
+
+    <config-param name="Braketime_Turn_Off" offset="104" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="8388607.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Braketime_Turn_Off]]>      </description>
+      <description xml:lang="en">        <![CDATA[Braketime_Turn_Off]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Ausschaltzeit der Bremse [ms]]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Ausschaltzeit der Bremse [ms]]]>      </comment>
+    </config-param>
+
+    <config-param name="Application_Selector" offset="3" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="1">        1      </value>
+      <range min="1.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Application_Selector]]>      </description>
+      <description xml:lang="en">        <![CDATA[Application_Selector]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Positionssteuerung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Positionssteuerung]]>      </comment>
+    </config-param>
+
+    <config-param name="Fan_Config" offset="381" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="12">        0      </value>
+      <range min="0.000000" max="2.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Fan_Config]]>      </description>
+      <description xml:lang="en">        <![CDATA[Fan_Config]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Konfiguration Lüfter]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Konfiguration Lüfter]]>      </comment>
+    </config-param>
+
+    <config-param name="Warn_Treshold_Temperature" offset="406" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="0.100000" unit="°C" engineering-value-list="-1">        700      </value>
+      <range min="0.000000" max="800.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Warn_Treshold_Temperature]]>      </description>
+      <description xml:lang="en">        <![CDATA[Warn_Treshold_Temperature]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Warntemperatur]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Warntemperatur]]>      </comment>
+    </config-param>
+
+    <config-param name="DC_Link_Umin" offset="408" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="0.100000" unit="V" engineering-value-list="-1">        150      </value>
+      <range min="150.000000" max="800.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[DC_Link_Umin]]>      </description>
+      <description xml:lang="en">        <![CDATA[DC_Link_Umin]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Minimale Zwischenkreisspannung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Minimale Zwischenkreisspannung]]>      </comment>
+    </config-param>
+
+    <config-param name="DC_Link_Umax" offset="410" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="0.100000" unit="V" engineering-value-list="-1">        800      </value>
+      <range min="0.000000" max="800.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[DC_Link_Umax]]>      </description>
+      <description xml:lang="en">        <![CDATA[DC_Link_Umax]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Maximale Zwischenkreisspannung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Maximale Zwischenkreisspannung]]>      </comment>
+    </config-param>
+
+    <config-param name="Trace_QuickVar_Index" offset="412" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Trace_QuickVar_Index]]>      </description>
+      <description xml:lang="en">        <![CDATA[Trace_QuickVar_Index]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Index der schnellen TMS-Variablen. Die TMS-Variablen werden zyklisch an den ARM gemeldet, dabei entstehen Verzögerungen bis zu 0.5s. Es kann mit diesem Parameter eine Variable ausgewählt werden, welche je 1ms übertragen wird.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Index der schnellen TMS-Variablen. Die TMS-Variablen werden zyklisch an den ARM gemeldet, dabei entstehen Verzögerungen bis zu 0.5s. Es kann mit diesem Parameter eine Variable ausgewählt werden, welche je 1ms übertragen wird.]]>      </comment>
+    </config-param>
+
+    <config-param name="Encoder.Config.StartVelocity" offset="413" bit-offset="0" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="14">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[Encoder.Config.StartVelocity]]>      </description>
+      <description xml:lang="en">        <![CDATA[Encoder.Config.StartVelocity]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Startgeschwindigkeit bei neuem Fahrkommando]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Startgeschwindigkeit bei neuem Fahrkommando]]>      </comment>
+    </config-param>
+
+    <config-param name="ErrorNotificationMode.OverTemperature" offset="113" bit-offset="1" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        1      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[ErrorNotificationMode.OverTemperature]]>      </description>
+      <description xml:lang="en">        <![CDATA[ErrorNotificationMode.OverTemperature]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Übertemperatur als Fehler melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Übertemperatur als Fehler melden]]>      </comment>
+    </config-param>
+
+    <config-param name="ErrorNotificationMode.MotorOff" offset="113" bit-offset="2" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        1      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[ErrorNotificationMode.MotorOff]]>      </description>
+      <description xml:lang="en">        <![CDATA[ErrorNotificationMode.MotorOff]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Fehlerhaften Motoranschluss als Fehler melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Fehlerhaften Motoranschluss als Fehler melden]]>      </comment>
+    </config-param>
+
+    <config-param name="ErrorNotificationMode.TrackingError_Velocity" offset="113" bit-offset="3" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[ErrorNotificationMode.TrackingError_Velocity]]>      </description>
+      <description xml:lang="en">        <![CDATA[ErrorNotificationMode.TrackingError_Velocity]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Schleppfehler (Geschwindigkeit) als Fehler melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Schleppfehler (Geschwindigkeit) als Fehler melden]]>      </comment>
+    </config-param>
+
+    <config-param name="ErrorNotificationMode.TrackingError_Position " offset="113" bit-offset="4" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[ErrorNotificationMode.TrackingError_Position ]]>      </description>
+      <description xml:lang="en">        <![CDATA[ErrorNotificationMode.TrackingError_Position ]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Schleppfehler (Position) als Fehler melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Schleppfehler (Position) als Fehler melden]]>      </comment>
+    </config-param>
+
+    <config-param name="ErrorNotificationMode.EncoderZeroPulse" offset="113" bit-offset="5" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[ErrorNotificationMode.EncoderZeroPulse]]>      </description>
+      <description xml:lang="en">        <![CDATA[ErrorNotificationMode.EncoderZeroPulse]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Z-Impuls-Abweichungen als Fehler melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Z-Impuls-Abweichungen als Fehler melden]]>      </comment>
+    </config-param>
+
+    <config-param name="WarningNotificationMode.SystemFlagEnable" offset="116" bit-offset="0" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[WarningNotificationMode.SystemFlagEnable]]>      </description>
+      <description xml:lang="en">        <![CDATA[WarningNotificationMode.SystemFlagEnable]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Warnung im Statusbyte Bit 0.6 melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Warnung im Statusbyte Bit 0.6 melden]]>      </comment>
+    </config-param>
+
+    <config-param name="WarningNotificationMode.MotorOff" offset="116" bit-offset="2" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[WarningNotificationMode.MotorOff]]>      </description>
+      <description xml:lang="en">        <![CDATA[WarningNotificationMode.MotorOff]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Fehlerhaften Motoranschluss als Warnung melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Fehlerhaften Motoranschluss als Warnung melden]]>      </comment>
+    </config-param>
+
+    <config-param name="WarningNotificationMode.TrackingVelocity" offset="116" bit-offset="3" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[WarningNotificationMode.TrackingVelocity]]>      </description>
+      <description xml:lang="en">        <![CDATA[WarningNotificationMode.TrackingVelocity]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Schleppfehler (Geschwindigkeit) als Warnung melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Schleppfehler (Geschwindigkeit) als Warnung melden]]>      </comment>
+    </config-param>
+
+    <config-param name="WarningNotificationMode.TrackingPosition " offset="116" bit-offset="4" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[WarningNotificationMode.TrackingPosition ]]>      </description>
+      <description xml:lang="en">        <![CDATA[WarningNotificationMode.TrackingPosition ]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Schleppfehler (Position) als Warnung melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Schleppfehler (Position) als Warnung melden]]>      </comment>
+    </config-param>
+
+    <config-param name="WarningNotificationMode.EncoderZeroPulse" offset="116" bit-offset="5" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Advanced </function-group>
+      <description xml:lang="de">        <![CDATA[WarningNotificationMode.EncoderZeroPulse]]>      </description>
+      <description xml:lang="en">        <![CDATA[WarningNotificationMode.EncoderZeroPulse]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Z-Impuls-Abweichungen als Warnung melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Z-Impuls-Abweichungen als Warnung melden]]>      </comment>
+    </config-param>
+
+    <config-param name="Freq_Div" offset="4" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        20      </value>
+      <range min="4.000000" max="32767.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Freq_Div]]>      </description>
+      <description xml:lang="en">        <![CDATA[Freq_Div]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Vorteiler für maximale Geschwindigkeit]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Vorteiler für maximale Geschwindigkeit]]>      </comment>
+    </config-param>
+
+    <config-param name="Acc_Fact" offset="6" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        100      </value>
+      <range min="1.000000" max="32767.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Acc_Fact]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acc_Fact]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Faktor für maximale Beschleunigung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Faktor für maximale Beschleunigung]]>      </comment>
+    </config-param>
+
+    <config-param name="Encoder.Resolution" offset="416" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        8000      </value>
+      <range min="1.000000" max="16777215.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Encoder.Resolution]]>      </description>
+      <description xml:lang="en">        <![CDATA[Encoder.Resolution]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Effektive Auflösung des Drehgebers in Impulsen / Umdrehung. (* 4)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Effektive Auflösung des Drehgebers in Impulsen / Umdrehung. (* 4)]]>      </comment>
+    </config-param>
+
+    <config-param name="Motor_Steps_per_Rev" offset="420" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        200      </value>
+      <range min="4.000000" max="10000.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Motor_Steps_per_Rev]]>      </description>
+      <description xml:lang="en">        <![CDATA[Motor_Steps_per_Rev]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Anzahl der Vollschritte des verwendeten Motors. Für einen typischen Motor mit 1.8° Schrittweite muss hier 360° / 1.8° = 200 parametriert werden. Der Wert muss durch 4 teilbar sein]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Anzahl der Vollschritte des verwendeten Motors. Für einen typischen Motor mit 1.8° Schrittweite muss hier 360° / 1.8° = 200 parametriert werden. Der Wert muss durch 4 teilbar sein]]>      </comment>
+    </config-param>
+
+    <config-param name="Current" offset="14" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="0.100000" unit="A" engineering-value-list="-1">        40      </value>
+      <range min="0.000000" max="50.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Current]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Motornennstrom (Scheitelwert)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Motornennstrom (Scheitelwert)]]>      </comment>
+    </config-param>
+
+    <config-param name="Current_Ratio_StandStill" offset="15" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="%" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="150.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Current_Ratio_StandStill]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current_Ratio_StandStill]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stromfaktor bei Stillstand [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stromfaktor bei Stillstand [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+    </config-param>
+
+    <config-param name="Current_Ratio_RampUp" offset="16" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="%" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="150.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Current_Ratio_RampUp]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current_Ratio_RampUp]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stromfaktor bei Rampenfahrt [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stromfaktor bei Rampenfahrt [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+    </config-param>
+
+    <config-param name="Current_Ratio_Drive" offset="17" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="%" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="150.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Current_Ratio_Drive]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current_Ratio_Drive]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stromfaktor bei Fahrt [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stromfaktor bei Fahrt [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+    </config-param>
+
+    <config-param name="Current_Ratio_RampDown" offset="18" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="%" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="150.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Current_Ratio_RampDown]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current_Ratio_RampDown]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stromfaktor bei Rampenfahrt [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stromfaktor bei Rampenfahrt [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+    </config-param>
+
+    <config-param name="Current_Ratio_Stop" offset="61" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="%" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="150.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Basic </function-group>
+      <description xml:lang="de">        <![CDATA[Current_Ratio_Stop]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current_Ratio_Stop]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stromfaktor bei STOP-Betrieb [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stromfaktor bei STOP-Betrieb [%]; bezogen auf Motornennstrom "Current"]]>      </comment>
+    </config-param>
+
+    <config-param name="Controller_v_Kp" offset="444" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        10000      </value>
+      <range min="0.000000" max="2147483647.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Controller_v_Kp]]>      </description>
+      <description xml:lang="en">        <![CDATA[Controller_v_Kp]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Verstärkung des Drehzahlregelkreises]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Verstärkung des Drehzahlregelkreises]]>      </comment>
+    </config-param>
+
+    <config-param name="Controller_v_ITi" offset="448" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        2000      </value>
+      <range min="0.000000" max="2147483647.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Controller_v_ITi]]>      </description>
+      <description xml:lang="en">        <![CDATA[Controller_v_ITi]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Kehrwert der Integrationszeitkonstanten des Drehzahlregelkreises]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Kehrwert der Integrationszeitkonstanten des Drehzahlregelkreises]]>      </comment>
+    </config-param>
+
+    <config-param name="Controller_s_Kp" offset="452" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        15000      </value>
+      <range min="0.000000" max="2147483647.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Controller_s_Kp]]>      </description>
+      <description xml:lang="en">        <![CDATA[Controller_s_Kp]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Verstärkung des Positionsregelkreises (P-Regler)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Verstärkung des Positionsregelkreises (P-Regler)]]>      </comment>
+    </config-param>
+
+    <config-param name="Controller_s_ITi" offset="456" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="2147483647.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Controller_s_ITi]]>      </description>
+      <description xml:lang="en">        <![CDATA[Controller_s_ITi]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Kehrwert der Integrationszeitkonstanten des Positionsregelkreises (I-Regler)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Kehrwert der Integrationszeitkonstanten des Positionsregelkreises (I-Regler)]]>      </comment>
+    </config-param>
+
+    <config-param name="Controller_s_Td" offset="460" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="2147483647.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Controller_s_Td]]>      </description>
+      <description xml:lang="en">        <![CDATA[Controller_s_Td]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Vorhaltezeitkonstante des Positionsregelkreises (D-Regler)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Vorhaltezeitkonstante des Positionsregelkreises (D-Regler)]]>      </comment>
+    </config-param>
+
+    <config-param name="Controller_s_Tddi" offset="464" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Controller_s_Tddi]]>      </description>
+      <description xml:lang="en">        <![CDATA[Controller_s_Tddi]]>      </description>
+      <comment xml:lang="de">        <![CDATA[inverse Filterzeitkonstante des Positionsregelkreises (D-Regler)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[inverse Filterzeitkonstante des Positionsregelkreises (D-Regler)]]>      </comment>
+    </config-param>
+
+    <config-param name="Encoder.Config.OpModeFeedback" offset="413" bit-offset="1" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="15">        1      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Encoder.Config.OpModeFeedback]]>      </description>
+      <description xml:lang="en">        <![CDATA[Encoder.Config.OpModeFeedback]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Nutzung des Drehgebers]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Nutzung des Drehgebers]]>      </comment>
+    </config-param>
+
+    <config-param name="Encoder.Config.QDECCTL" offset="414" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Encoder.Config.QDECCTL]]>      </description>
+      <description xml:lang="en">        <![CDATA[Encoder.Config.QDECCTL]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Konfiguration Drehgeberauswertung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Konfiguration Drehgeberauswertung]]>      </comment>
+    </config-param>
+
+    <config-param name="SpeedMeasureTimeA" offset="428" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[SpeedMeasureTimeA]]>      </description>
+      <description xml:lang="en">        <![CDATA[SpeedMeasureTimeA]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitmessfenster für absolute Frequenzmessung [ms]. Wenn innerhalb des Zeitmessfenster keine Impulse eintreffen, wird das Zeitmessfenster verlängert bis zum nächsten Impuls, höchstens jedoch um SpeedMeasureTimeoutA]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitmessfenster für absolute Frequenzmessung [ms]. Wenn innerhalb des Zeitmessfenster keine Impulse eintreffen, wird das Zeitmessfenster verlängert bis zum nächsten Impuls, höchstens jedoch um SpeedMeasureTimeoutA]]>      </comment>
+    </config-param>
+
+    <config-param name="SpeedMeasureTimeoutA" offset="432" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[SpeedMeasureTimeoutA]]>      </description>
+      <description xml:lang="en">        <![CDATA[SpeedMeasureTimeoutA]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Timeout für Absolute Frequenzmessung in [ms]. Ermoeglicht eine automatische Verlängerung der Messzeit. Wenn innerhalb der verlängerten Zeit SpeedMeasureTimeoutA keine Impulse erkannt werden, wird die Messung abgebrochen und die Frequenz „Null“ gemeldet.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Timeout für Absolute Frequenzmessung in [ms]. Ermoeglicht eine automatische Verlängerung der Messzeit. Wenn innerhalb der verlängerten Zeit SpeedMeasureTimeoutA keine Impulse erkannt werden, wird die Messung abgebrochen und die Frequenz „Null“ gemeldet.]]>      </comment>
+    </config-param>
+
+    <config-param name="SpeedMeasureTimeV" offset="436" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="0.250000" unit="ms" engineering-value-list="-1">        28      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[SpeedMeasureTimeV]]>      </description>
+      <description xml:lang="en">        <![CDATA[SpeedMeasureTimeV]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitmessfenster für interne Drehzahlmessung [ms] (Istwert der Drehzahlregelung). Wenn innerhalb des Zeitmessfenster keine Impulse eintreffen, wird das Zeitmessfenster verlängert bis zum nächsten Impuls, höchstens jedoch um SpeedMeasureTimeoutV. Dieser Parameter hat Einfuß auf den Reglerabgleich und auf die niedrigste Drehzahl, welche mit guter Performance geregelt werden kann. (kurzes Messfenster: ermöglicht dynamische Reglereinstellung, erhöht die minimal nutzbare Drehzahl. (langes Messfenster wirkt als Messwertfilter: erhöht die Qualität des Messsignals, ermöglicht niedrige Geschwindigkeiten, Regler müssen langsam eingestellt werden)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitmessfenster für interne Drehzahlmessung [ms] (Istwert der Drehzahlregelung). Wenn innerhalb des Zeitmessfenster keine Impulse eintreffen, wird das Zeitmessfenster verlängert bis zum nächsten Impuls, höchstens jedoch um SpeedMeasureTimeoutV. Dieser Parameter hat Einfuß auf den Reglerabgleich und auf die niedrigste Drehzahl, welche mit guter Performance geregelt werden kann. (kurzes Messfenster: ermöglicht dynamische Reglereinstellung, erhöht die minimal nutzbare Drehzahl. (langes Messfenster wirkt als Messwertfilter: erhöht die Qualität des Messsignals, ermöglicht niedrige Geschwindigkeiten, Regler müssen langsam eingestellt werden)]]>      </comment>
+    </config-param>
+
+    <config-param name="SpeedMeasureTimeoutV" offset="440" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="0.250000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[SpeedMeasureTimeoutV]]>      </description>
+      <description xml:lang="en">        <![CDATA[SpeedMeasureTimeoutV]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Timeout für interne Drehzahlmessung [ms]. Wenn innerhalb der verlängerten Zeit SpeedMeasureTimeoutV keine Impulse erkannt werden, wird die Messung abgebrochen und die Frequenz "Null" gemeldet. Ein zu grosser Wert kann zu Problemen bei niedrigen Drehzahlen führen.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Timeout für interne Drehzahlmessung [ms]. Wenn innerhalb der verlängerten Zeit SpeedMeasureTimeoutV keine Impulse erkannt werden, wird die Messung abgebrochen und die Frequenz "Null" gemeldet. Ein zu grosser Wert kann zu Problemen bei niedrigen Drehzahlen führen.]]>      </comment>
+    </config-param>
+
+    <config-param name="Speed_Filter" offset="480" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        16384      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[Speed_Filter]]>      </description>
+      <description xml:lang="en">        <![CDATA[Speed_Filter]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Fiter für die Istdrehzahl (Prozessabbild oder Variable 2); Filterzeitkonstante = 1ms*0xFFFF/SpeedFilt]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Fiter für die Istdrehzahl (Prozessabbild oder Variable 2); Filterzeitkonstante = 1ms*0xFFFF/SpeedFilt]]>      </comment>
+    </config-param>
+
+    <config-param name="TrackingError_Range_Speed" offset="482" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        6000      </value>
+      <range min="0.000000" max="32767.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[TrackingError_Range_Speed]]>      </description>
+      <description xml:lang="en">        <![CDATA[TrackingError_Range_Speed]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Max. zulässiger Schleppfehler Geschwindigkeit. Wenn der Geschwindigkeitsfehler den Grenzwert länger als "TrackingErrorDelay" überschreitet, wird eine Warnung oder eine Fehlermeldung generiert.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Max. zulässiger Schleppfehler Geschwindigkeit. Wenn der Geschwindigkeitsfehler den Grenzwert länger als "TrackingErrorDelay" überschreitet, wird eine Warnung oder eine Fehlermeldung generiert.]]>      </comment>
+    </config-param>
+
+    <config-param name="TrackingError_Range_Position" offset="484" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        100      </value>
+      <range min="0.000000" max="4294967295.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[TrackingError_Range_Position]]>      </description>
+      <description xml:lang="en">        <![CDATA[TrackingError_Range_Position]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Max. zulässiger Schleppfehler Position. Wenn der Positionsfehler den Grenzwert länger als "TrackingErrorDelay" überschreitet, wird eine Warnung oder eine Fehlermeldung generiert.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Max. zulässiger Schleppfehler Position. Wenn der Positionsfehler den Grenzwert länger als "TrackingErrorDelay" überschreitet, wird eine Warnung oder eine Fehlermeldung generiert.]]>      </comment>
+    </config-param>
+
+    <config-param name="TrackingError_Delay" offset="488" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        5000      </value>
+      <range min="0.000000" max="4294967295.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[TrackingError_Delay]]>      </description>
+      <description xml:lang="en">        <![CDATA[TrackingError_Delay]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitverzögerung [ms] bis ein Positionsfehler oder ein Geschwindigkeitsfehler zu einer Fehlermeldung oder Warnung führt.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitverzögerung [ms] bis ein Positionsfehler oder ein Geschwindigkeitsfehler zu einer Fehlermeldung oder Warnung führt.]]>      </comment>
+    </config-param>
+
+    <config-param name="TargetWindowSpeed" offset="470" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        50      </value>
+      <range min="0.000000" max="32767.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[TargetWindowSpeed]]>      </description>
+      <description xml:lang="en">        <![CDATA[TargetWindowSpeed]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zielfenster für Geschwindigkeitsregelung. Unterscheidet sich die Endgeschwindigkeit nach Ablauf der Beschleunigungsrampe um weniger als das parametrierte Zielfenster von der Zielgeschwindigkeit, dann wird das Bit „ON_TARGET“ gesetzt.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zielfenster für Geschwindigkeitsregelung. Unterscheidet sich die Endgeschwindigkeit nach Ablauf der Beschleunigungsrampe um weniger als das parametrierte Zielfenster von der Zielgeschwindigkeit, dann wird das Bit „ON_TARGET“ gesetzt.]]>      </comment>
+    </config-param>
+
+    <config-param name="TargetWindowPosition" offset="472" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        50      </value>
+      <range min="0.000000" max="4294967295.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Controller Parameter </function-group>
+      <description xml:lang="de">        <![CDATA[TargetWindowPosition]]>      </description>
+      <description xml:lang="en">        <![CDATA[TargetWindowPosition]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zielfenster für Positionsregelung. Unterscheidet sich die Position nach Ablauf des Bewegungsprofiles um weniger als das parametrierte Zielfenster von der Zielposition, dann wird das Bit „ON_TARGET“ gesetzt. (Nur im positionsgeregelten Betrieb!)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zielfenster für Positionsregelung. Unterscheidet sich die Position nach Ablauf des Bewegungsprofiles um weniger als das parametrierte Zielfenster von der Zielposition, dann wird das Bit „ON_TARGET“ gesetzt. (Nur im positionsgeregelten Betrieb!)]]>      </comment>
+    </config-param>
+
+    <config-param name="Current_Ctrl_Type" offset="396" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="13">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[Current_Ctrl_Type]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current_Ctrl_Type]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stromreglertyp (Endstufentest nur für internen Service!)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stromreglertyp (Endstufentest nur für internen Service!)]]>      </comment>
+    </config-param>
+
+    <config-param name="Currrent_Ctrl_Hysteresis" offset="384" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        50      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Expert </function-group>
+      <description xml:lang="de">        <![CDATA[Currrent_Ctrl_Hysteresis]]>      </description>
+      <description xml:lang="en">        <![CDATA[Currrent_Ctrl_Hysteresis]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stromreglerhysterese]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stromreglerhysterese]]>      </comment>
+    </config-param>
+
+    <config-param name="Currrent_Ctrl_TZMin" offset="388" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="4.000000" unit="us" engineering-value-list="-1">        2      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Expert </function-group>
+      <description xml:lang="de">        <![CDATA[Currrent_Ctrl_TZMin]]>      </description>
+      <description xml:lang="en">        <![CDATA[Currrent_Ctrl_TZMin]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Wartezeit beim Nullzustand vor Bandumschaltung (nur Stromdreipunktregler!)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Wartezeit beim Nullzustand vor Bandumschaltung (nur Stromdreipunktregler!)]]>      </comment>
+    </config-param>
+
+    <config-param name="Currrent_Ctrl_TZMax" offset="392" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="4.000000" unit="us" engineering-value-list="-1">        30      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Expert </function-group>
+      <description xml:lang="de">        <![CDATA[Currrent_Ctrl_TZMax]]>      </description>
+      <description xml:lang="en">        <![CDATA[Currrent_Ctrl_TZMax]]>      </description>
+      <comment xml:lang="de">        <![CDATA[max. Zeit vom Nullzustand, anschließend erzwungene Bandumschaltung (nur Stromdreipunktregler!)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[max. Zeit vom Nullzustand, anschließend erzwungene Bandumschaltung (nur Stromdreipunktregler!)]]>      </comment>
+    </config-param>
+
+    <config-param name="Current_Pass2" offset="394" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        49392      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Expert </function-group>
+      <description xml:lang="de">        <![CDATA[Current_Pass2]]>      </description>
+      <description xml:lang="en">        <![CDATA[Current_Pass2]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Passwort für Stromreglerparameter]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Passwort für Stromreglerparameter]]>      </comment>
+    </config-param>
+
+    <config-param name="ControllerMinLimit" offset="492" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        8      </value>
+      <range min="1.000000" max="2047.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Expert </function-group>
+      <description xml:lang="de">        <![CDATA[ControllerMinLimit]]>      </description>
+      <description xml:lang="en">        <![CDATA[ControllerMinLimit]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Stellgradbegrenzung für den Positionsregler]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Stellgradbegrenzung für den Positionsregler]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter1_Function" offset="224" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter1_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter1_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 1]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter2_Function" offset="225" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter2_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter2_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 2]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 2]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter3_Function" offset="226" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter3_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter3_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 3]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 3]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter4_Function" offset="227" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter4_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter4_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 4]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 4]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter5_Function" offset="228" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter5_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter5_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 5]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 5]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter6_Function" offset="229" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter6_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter6_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 6]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 6]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter7_Function" offset="230" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter7_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter7_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 7]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 7]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter8_Function" offset="231" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="6">        0      </value>
+      <range min="0.000000" max="11.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter8_Function]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter8_Function]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Funktion des Filters 8]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Funktion des Filters 8]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter1_Time" offset="232" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter1_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter1_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 1 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 1 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter2_Time" offset="236" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter2_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter2_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 2 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 2 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter3_Time" offset="240" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter3_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter3_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 3 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 3 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter4_Time" offset="244" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter4_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter4_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 4 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 4 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter5_Time" offset="248" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter5_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter5_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 5 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 5 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter6_Time" offset="252" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter6_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter6_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 6 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 6 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter7_Time" offset="256" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter7_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter7_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 7 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 7 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="Filter8_Time" offset="260" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="ms" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Filter </function-group>
+      <description xml:lang="de">        <![CDATA[Filter8_Time]]>      </description>
+      <description xml:lang="en">        <![CDATA[Filter8_Time]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeitkonstante Filter 8 [ms] ]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeitkonstante Filter 8 [ms] ]]>      </comment>
+    </config-param>
+
+    <config-param name="SetupSpeed" offset="44" bit-offset="0" data-type="INT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        3000      </value>
+      <range min="1.000000" max="25000.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[SetupSpeed]]>      </description>
+      <description xml:lang="en">        <![CDATA[SetupSpeed]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Geschwindigkeit fürs Referenzieren und Joggen]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Geschwindigkeit fürs Referenzieren und Joggen]]>      </comment>
+    </config-param>
+
+    <config-param name="SetupAcceleration" offset="62" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1000      </value>
+      <range min="10.000000" max="32767.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[SetupAcceleration]]>      </description>
+      <description xml:lang="en">        <![CDATA[SetupAcceleration]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Beschleunigung fürs Referenzieren und Joggen]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Beschleunigung fürs Referenzieren und Joggen]]>      </comment>
+    </config-param>
+
+    <config-param name="Reference_Offset" offset="108" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="-8388607.000000" max="8388607.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[Reference_Offset]]>      </description>
+      <description xml:lang="en">        <![CDATA[Reference_Offset]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Position des Referenzschalters]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Position des Referenzschalters]]>      </comment>
+    </config-param>
+
+    <config-param name="Reference_To_Ref_Switch" offset="112" bit-offset="0" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="17">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[Reference_To_Ref_Switch]]>      </description>
+      <description xml:lang="en">        <![CDATA[Reference_To_Ref_Switch]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Schalterauswahl für Referenzfahrt]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Schalterauswahl für Referenzfahrt]]>      </comment>
+    </config-param>
+
+    <config-param name="Reference_Ref_Switch_Pos" offset="112" bit-offset="1" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="18">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[Reference_Ref_Switch_Pos]]>      </description>
+      <description xml:lang="en">        <![CDATA[Reference_Ref_Switch_Pos]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Richtung für Referenzfahrt bezogen auf den Referenzschalter]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Richtung für Referenzfahrt bezogen auf den Referenzschalter]]>      </comment>
+    </config-param>
+
+    <config-param name="MotorAlign.BasicMode" offset="380" bit-offset="0" data-type="BIT" no-of-elems="2" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="8">        3      </value>
+      <range min="0.000000" max="3.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[MotorAlign.BasicMode]]>      </description>
+      <description xml:lang="en">        <![CDATA[MotorAlign.BasicMode]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Anwahl der Motorausrichtung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Anwahl der Motorausrichtung]]>      </comment>
+    </config-param>
+
+    <config-param name="Encoder.Config.EvalIndex" offset="413" bit-offset="2" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="16">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[Encoder.Config.EvalIndex]]>      </description>
+      <description xml:lang="en">        <![CDATA[Encoder.Config.EvalIndex]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Auswertung Z-Impuls Drehgeber]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Auswertung Z-Impuls Drehgeber]]>      </comment>
+    </config-param>
+
+    <config-param name="MotorAlign.ExtMode.Range" offset="380" bit-offset="2" data-type="BIT" no-of-elems="2" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="9">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[MotorAlign.ExtMode.Range]]>      </description>
+      <description xml:lang="en">        <![CDATA[MotorAlign.ExtMode.Range]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Parameter der Motorausrichtung bei Basicmode ungleich 0]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Parameter der Motorausrichtung bei Basicmode ungleich 0]]>      </comment>
+    </config-param>
+
+    <config-param name="MotorAlign.ExtMode.Force" offset="380" bit-offset="4" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="10">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[MotorAlign.ExtMode.Force]]>      </description>
+      <description xml:lang="en">        <![CDATA[MotorAlign.ExtMode.Force]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Motorausrichtung (automatisch: Ausrichtung nur wenn noch nicht erfolgt)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Motorausrichtung (automatisch: Ausrichtung nur wenn noch nicht erfolgt)]]>      </comment>
+    </config-param>
+
+    <config-param name="MotorAlign.ExtMode.Store" offset="380" bit-offset="5" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="11">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[MotorAlign.ExtMode.Store]]>      </description>
+      <description xml:lang="en">        <![CDATA[MotorAlign.ExtMode.Store]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Messwert nach Motorausrichtung speichern (nur während Inbetriebnahme erforderlich)]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Messwert nach Motorausrichtung speichern (nur während Inbetriebnahme erforderlich)]]>      </comment>
+    </config-param>
+
+    <config-param name="Encoder.IndexMeasureJitterRange" offset="426" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        20      </value>
+      <range min="0.000000" max="65535.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Homing/Jogging </function-group>
+      <description xml:lang="de">        <![CDATA[Encoder.IndexMeasureJitterRange]]>      </description>
+      <description xml:lang="en">        <![CDATA[Encoder.IndexMeasureJitterRange]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Gibt an, wieweit eine Messung des Z-Impulses von der erstmaligen Messung des Z-Impulses abweichen daf. Bei einer größeren Abweichung wird ein Fehler gemeldet. Wenn uiJitterRange größer als EncoderResolution gewählt wird, wird kein Fehler ausgelöst.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Gibt an, wieweit eine Messung des Z-Impulses von der erstmaligen Messung des Z-Impulses abweichen daf. Bei einer größeren Abweichung wird ein Fehler gemeldet. Wenn uiJitterRange größer als EncoderResolution gewählt wird, wird kein Fehler ausgelöst.]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_0" offset="128" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        16      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_0]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_0]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_0]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_0]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_1" offset="129" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        17      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_1]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_1]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_2" offset="130" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        18      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_2]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_2]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_2]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_2]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_3" offset="131" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        19      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_3]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_3]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_3]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_3]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_4" offset="132" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        20      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_4]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_4]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_4]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_4]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_5" offset="133" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        21      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_5]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_5]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_5]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_5]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_6" offset="134" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        22      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_6]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_6]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_6]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_6]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST1_7" offset="135" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        23      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST1_7]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST1_7]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST1_7]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST1_7]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_0" offset="136" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        8      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_0]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_0]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_0]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_0]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_1" offset="137" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        9      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_1]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_1]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_2" offset="138" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        10      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_2]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_2]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_2]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_2]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_3" offset="139" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        11      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_3]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_3]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_3]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_3]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_4" offset="140" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        12      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_4]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_4]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_4]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_4]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_5" offset="141" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        13      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_5]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_5]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_5]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_5]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_6" offset="142" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        14      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_6]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_6]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_6]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_6]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST2_7" offset="143" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        15      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST2_7]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST2_7]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST2_7]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST2_7]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_0" offset="144" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        48      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_0]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_0]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_0]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_0]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_1" offset="145" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        49      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_1]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_1]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_2" offset="146" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        50      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_2]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_2]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_2]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_2]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_3" offset="147" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        51      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_3]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_3]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_3]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_3]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_4" offset="148" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        52      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_4]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_4]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_4]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_4]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_5" offset="149" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        53      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_5]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_5]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_5]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_5]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_6" offset="150" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        5      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_6]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_6]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_6]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_6]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_KBUS_ST3_7" offset="151" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        4      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_KBUS_ST3_7]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_KBUS_ST3_7]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf KBUS_ST3_7]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf KBUS_ST3_7]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_OUT1" offset="160" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        8      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Output_1]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Output_1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf OUT1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf OUT1]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_OUT2" offset="161" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        15      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Output_2]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Output_2]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf OUT2]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf OUT2]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT1" offset="168" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT1]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter1]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT2" offset="169" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT2]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT2]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter2]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter2]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT3" offset="170" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT3]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT3]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter3]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter3]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT4" offset="171" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT4]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT4]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter4]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter4]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT5" offset="172" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT5]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT5]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter5]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter5]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT6" offset="173" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT6]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT6]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter6]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter6]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT7" offset="174" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT7]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT7]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter7]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter7]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_FILT8" offset="175" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_FILT8]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_FILT8]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Filter8]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Filter8]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Enable" offset="176" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        64      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Enable]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Enable]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Enable]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Enable]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Stop2_N" offset="177" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        65      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Stop2_N]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Stop2_N]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Stop2_N]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Stop2_N]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Start" offset="178" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        66      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Start]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Start]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Start]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Start]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_M_Positioning" offset="179" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        67      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_M_Positioning]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_M_Positioning]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf M_Positioning]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf M_Positioning]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_M_Program" offset="180" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        68      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_M_Program]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_M_Program]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf M_Program]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf M_Program]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_M_Reference" offset="181" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        69      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_M_Reference]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_M_Reference]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf M_Reference]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf M_Reference]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_M_Jog" offset="182" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        70      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_M_Jog]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_M_Jog]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf M_Jog]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf M_Jog]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_M_DriveByMbx" offset="183" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        71      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_M_DriveByMbx]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_M_DriveByMbx]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf M_DriveByMbx]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf M_DriveByMbx]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Enable_Drive" offset="184" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Enable_Drive]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Enable_Drive]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Enable_drive]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Enable_drive]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Reset_Quit" offset="185" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        87      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Reset_Quit]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Reset_Quit]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Reset_Quit]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Reset_Quit]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Direction_Pos" offset="186" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        82      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Direction_Pos]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Direction_Pos]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Direction_Pos]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Direction_Pos]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Direction_Neg" offset="187" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        83      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Direction_Neg]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Direction_Neg]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Direction_Neg]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Direction_Neg]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Set_Reference" offset="188" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        49      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Set_Reference]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Set_Reference]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Set_Reference]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Set_Reference]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_PreCalc" offset="189" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        78      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_PreCalc]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_PreCalc]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf PreCalc]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf PreCalc]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_SetupSpeed_Active" offset="190" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        2      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_SetupSpeed_Active]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_SetupSpeed_Active]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf SetupSpeed_Active]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf SetupSpeed_Active]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Error_Quit" offset="191" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        79      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Error_Quit]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Error_Quit]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Error_Quit]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Error_Quit]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LimitSwitch_Pos" offset="192" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        52      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LimitSwitch_Pos]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LimitSwitch_Pos]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LimitSwitch_Pos]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LimitSwitch_Pos]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LimitSwitch_Neg" offset="193" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        53      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LimitSwitch_Neg]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LimitSwitch_Neg]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LimitSwitch_Neg]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LimitSwitch_Neg]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Stop1_N" offset="194" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        48      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Stop1_N]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Stop1_N]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Stop1_N]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Stop1_N]]>      </comment>
+    </config-param>
+
+    <config-param name="Break_Manual" offset="195" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Break_Manual]]>      </description>
+      <description xml:lang="en">        <![CDATA[Break_Manual]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Quelle von linkbarem Bit C3]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Quelle von linkbarem Bit C3]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Freq_Range_Sel_0" offset="196" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        72      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Freq_Range_Sel_0]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Freq_Range_Sel_0]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Freq_Range_Sel_0]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Freq_Range_Sel_0]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Freq_Range_Sel_1" offset="197" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        73      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Freq_Range_Sel_1]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Freq_Range_Sel_1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Freq_Range_Sel_1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Freq_Range_Sel_1]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Acc_Range_Sel_0" offset="198" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        74      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Acc_Range_Sel_0]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Acc_Range_Sel_0]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Acc_Range_Sel_0]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Acc_Range_Sel_0]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Acc_Range_Sel_1" offset="199" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        75      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Acc_Range_Sel_1]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Acc_Range_Sel_1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Acc_Range_Sel_1]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Acc_Range_Sel_1]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Set_Actual_POS" offset="200" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        80      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Set_Actual_POS]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Set_Actual_POS]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Set_Actual_POS]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Set_Actual_POS]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Jog_Pos" offset="202" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        82      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Jog_Pos]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Jog_Pos]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Jog_Pos]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Jog_Pos]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Jog_Neg" offset="203" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        83      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Jog_Neg]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Jog_Neg]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Jog_Neg]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Jog_Neg]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LED_B" offset="208" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        9      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LED_B]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LED_B]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LED_B]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LED_B]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LED_C" offset="209" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        27      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LED_C]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LED_C]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LED_C]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LED_C]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LED_D" offset="210" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        17      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LED_D]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LED_D]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LED_D]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LED_D]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LED_A" offset="211" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        25      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LED_A]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LED_A]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LED_A]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LED_A]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LED_E" offset="212" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        38      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LED_E]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LED_E]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LED_E]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LED_E]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_LED_F" offset="213" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        39      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_LED_F]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_LED_F]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf LED_F]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf LED_F]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Trace_Trigger" offset="222" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        9      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Trace_Trigger]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Trace_Trigger]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Trace_Trigger]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Trace_Trigger]]>      </comment>
+    </config-param>
+
+    <config-param name="Ptr_Trace_Armed" offset="223" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        3      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[Ptr_Trace_Armed]]>      </description>
+      <description xml:lang="en">        <![CDATA[Ptr_Trace_Armed]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zeiger auf Trace_Armed]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zeiger auf Trace_Armed]]>      </comment>
+    </config-param>
+
+    <config-param name="TraceVar1" offset="264" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[TraceVar1]]>      </description>
+      <description xml:lang="en">        <![CDATA[TraceVar1]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Variablennummer 1 für Tracespeicher]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Variablennummer 1 für Tracespeicher]]>      </comment>
+    </config-param>
+
+    <config-param name="TraceVar2" offset="268" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        2      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[TraceVar2]]>      </description>
+      <description xml:lang="en">        <![CDATA[TraceVar2]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Variablennummer 2 für Tracespeicher]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Variablennummer 2 für Tracespeicher]]>      </comment>
+    </config-param>
+
+    <config-param name="TraceMsecCycleTime" offset="272" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="0.000000" max="16777215.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Linking </function-group>
+      <description xml:lang="de">        <![CDATA[TraceMsecCycleTime]]>      </description>
+      <description xml:lang="en">        <![CDATA[TraceMsecCycleTime]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Zykluszeit für die Aufzeichnung der in TraceVar1/2 angegebenen Variablen in msec]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Zykluszeit für die Aufzeichnung der in TraceVar1/2 angegebenen Variablen in msec]]>      </comment>
+    </config-param>
+
+    <config-param name="ErrorNotificationMode.SystemFlagEnable" offset="113" bit-offset="0" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[ErrorNotificationMode.SystemFlagEnable]]>      </description>
+      <description xml:lang="en">        <![CDATA[ErrorNotificationMode.SystemFlagEnable]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Fehler-Signalisierung durch Bit 0.6 im Statusbyte.]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Fehler-Signalisierung durch Bit 0.6 im Statusbyte.]]>      </comment>
+    </config-param>
+
+    <config-param name="Encoder.Config" offset="413" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        2      </value>
+      <range min="0.000000" max="255.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[Encoder.Config]]>      </description>
+      <description xml:lang="en">        <![CDATA[Encoder.Config]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Konfiguration Drehgeber]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Konfiguration Drehgeber]]>      </comment>
+    </config-param>
+
+    <config-param name="HwSwConfig.Feedback" offset="19" bit-offset="1" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[HwSwConfig.Feedback]]>      </description>
+      <description xml:lang="en">        <![CDATA[HwSwConfig.Feedback]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Drehgeber verwenden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Drehgeber verwenden]]>      </comment>
+    </config-param>
+
+    <config-param name="HwSwConfig.Encoder_Direction" offset="19" bit-offset="3" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[HwSwConfig.Encoder_Direction]]>      </description>
+      <description xml:lang="en">        <![CDATA[HwSwConfig.Encoder_Direction]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Invertierung der Drehgeberauswertung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Invertierung der Drehgeberauswertung]]>      </comment>
+    </config-param>
+
+    <config-param name="HwSwConfig.Encoder_Type" offset="19" bit-offset="4" data-type="BIT" no-of-elems="3" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="5">        0      </value>
+      <range min="1.000000" max="4.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[HwSwConfig.Encoder_Type]]>      </description>
+      <description xml:lang="en">        <![CDATA[HwSwConfig.Encoder_Type]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Drehgeberkonfiguration]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Drehgeberkonfiguration]]>      </comment>
+    </config-param>
+
+    <config-param name="Enc_Mult" offset="24" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[Enc_Mult]]>      </description>
+      <description xml:lang="en">        <![CDATA[Enc_Mult]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktoren zur Anpassung des Inkrementalgebers]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktoren zur Anpassung des Inkrementalgebers]]>      </comment>
+    </config-param>
+
+    <config-param name="Enc_Div" offset="26" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[Enc_Div]]>      </description>
+      <description xml:lang="en">        <![CDATA[Enc_Div]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktoren zur Anpassung des Inkrementalgebers]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktoren zur Anpassung des Inkrementalgebers]]>      </comment>
+    </config-param>
+
+    <config-param name="WarningNotificationMode.OverTemperature" offset="116" bit-offset="1" data-type="BIT" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="20">        0      </value>
+      <range min="0.000000" max="1.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> na </function-group>
+      <description xml:lang="de">        <![CDATA[WarningNotificationMode.OverTemperature]]>      </description>
+      <description xml:lang="en">        <![CDATA[WarningNotificationMode.OverTemperature]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Übertemperatur als Warnung melden]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Übertemperatur als Warnung melden]]>      </comment>
+    </config-param>
+
+    <config-param name="User_Conf_Id" offset="0" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        0      </value>
+      <range min="0.000000" max="5000.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Project </function-group>
+      <description xml:lang="de">        <![CDATA[User_Conf_Id]]>      </description>
+      <description xml:lang="en">        <![CDATA[User_Conf_Id]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Datensatznummer kann vom Anwender frei vergeben werden. Nummern oberhalb von 5000 sind reserviert]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Datensatznummer kann vom Anwender frei vergeben werden. Nummern oberhalb von 5000 sind reserviert]]>      </comment>
+    </config-param>
+
+    <config-param name="ConfVersion" offset="2" bit-offset="0" data-type="UINT8" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        4      </value>
+      <range min="0.000000" max="254.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Project </function-group>
+      <description xml:lang="de">        <![CDATA[ConfVersion]]>      </description>
+      <description xml:lang="en">        <![CDATA[ConfVersion]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Versionsnummer der Konfiguration]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Versionsnummer der Konfiguration]]>      </comment>
+    </config-param>
+
+    <config-param name="IdentNumber" offset="276" bit-offset="0" data-type="UINT32" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        750673      </value>
+      <range min="0.000000" max="99999999.000000"/>
+      <active-at-once> 0 </active-at-once>
+      <function-group> Project </function-group>
+      <description xml:lang="de">        <![CDATA[IdentNumber]]>      </description>
+      <description xml:lang="en">        <![CDATA[IdentNumber]]>      </description>
+      <comment xml:lang="de">        <![CDATA[WAGO Identifikationsnummer]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[WAGO Identifikationsnummer]]>      </comment>
+    </config-param>
+
+    <config-param name="Pos_Mult" offset="20" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Scaling </function-group>
+      <description xml:lang="de">        <![CDATA[Pos_Mult]]>      </description>
+      <description xml:lang="en">        <![CDATA[Pos_Mult]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktor für Positionen]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktor für Positionen]]>      </comment>
+    </config-param>
+
+    <config-param name="Pos_Div" offset="22" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Scaling </function-group>
+      <description xml:lang="de">        <![CDATA[Pos_Div]]>      </description>
+      <description xml:lang="en">        <![CDATA[Pos_Div]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktor für Positionen]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktor für Positionen]]>      </comment>
+    </config-param>
+
+    <config-param name="Speed_Mult" offset="28" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Scaling </function-group>
+      <description xml:lang="de">        <![CDATA[Vel_Mult]]>      </description>
+      <description xml:lang="en">        <![CDATA[Vel_Mult]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktor für Geschwindigkeiten]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktor für Geschwindigkeiten]]>      </comment>
+    </config-param>
+
+    <config-param name="Speed_Div" offset="30" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Scaling </function-group>
+      <description xml:lang="de">        <![CDATA[Vel_Div]]>      </description>
+      <description xml:lang="en">        <![CDATA[Vel_Div]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktor für Geschwindigkeiten]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktor für Geschwindigkeiten]]>      </comment>
+    </config-param>
+
+    <config-param name="Acc_Mult" offset="32" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Scaling </function-group>
+      <description xml:lang="de">        <![CDATA[Acc_Mult]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acc_Mult]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktor für Beschleunigung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktor für Beschleunigung]]>      </comment>
+    </config-param>
+
+    <config-param name="Acc_Div" offset="34" bit-offset="0" data-type="UINT16" no-of-elems="1" visible="1">
+      <value offset="0.000000" multiplier="1.000000" unit="na" engineering-value-list="-1">        1      </value>
+      <range min="1.000000" max="65535.000000"/>
+      <active-at-once> 1 </active-at-once>
+      <function-group> Scaling </function-group>
+      <description xml:lang="de">        <![CDATA[Acc_Div]]>      </description>
+      <description xml:lang="en">        <![CDATA[Acc_Div]]>      </description>
+      <comment xml:lang="de">        <![CDATA[Skalierungsfaktor für Beschleunigung]]>      </comment>
+      <comment xml:lang="en">        <![CDATA[Skalierungsfaktor für Beschleunigung]]>      </comment>
+    </config-param>
+
+  </config-param-list>
+</WAGO-config>
