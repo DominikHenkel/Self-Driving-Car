@@ -9,7 +9,9 @@ from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoi
 
 class Detector(object):
 
-    def __init__(self, net, weight_file):
+    def __init__(self):
+        net = YOLONet()
+        weight_file = os.path.join("data", 'weights', 'YOLO_small.ckp')
         self.net = net
         self.weights_file = weight_file
 
@@ -22,6 +24,10 @@ class Detector(object):
 
         self.saver = tf.train.Saver()
         self.saver.restore(self.sess, self.weights_file)
+
+    def process_img(self,image):
+        result = self.detect(image)
+        self.draw_result(image, result)
 
     def draw_result(self, img, result):
         for i in range(len(result)):
@@ -142,36 +148,3 @@ class Detector(object):
             max(box1[1] - 0.5 * box1[3], box2[1] - 0.5 * box2[3])
         inter = 0 if tb < 0 or lr < 0 else tb * lr
         return inter / (box1[2] * box1[3] + box2[2] * box2[3] - inter)
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', default="YOLO_small.ckpt", type=str)
-    parser.add_argument('--weight_dir', default='weights', type=str)
-    parser.add_argument('--data_dir', default="data", type=str)
-    parser.add_argument('--gpu', default='', type=str)
-    args = parser.parse_args()
-
-
-    yolo = YOLONet()
-    weight_file = os.path.join(args.data_dir, args.weight_dir, args.weights)
-    detector = Detector(yolo, weight_file)
-
-    cap = cv2.VideoCapture(0)
-
-    while(True):
-        # Capture frame-by-frame
-        ret, image = cap.read()
-
-        result = detector.detect(image)
-        detector.draw_result(image, result)
-        cv2.imshow('Image', image)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
-if __name__ == '__main__':
-    main()
