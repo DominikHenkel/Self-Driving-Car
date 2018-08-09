@@ -26,14 +26,10 @@ class Detector(object):
         self.saver.restore(self.sess, self.weights_file)
 
     def process_img(self,image):
-        result = self.detect(image)
-        print('result')
-        print(result)
-        self.draw_result(image, result)
+        return self.detect(image)
 
     def draw_result(self, img, result):
         for i in range(len(result)):
-            print('drawing')
             x = int(result[i][1])
             y = int(result[i][2])
             w = int(result[i][3] / 2)

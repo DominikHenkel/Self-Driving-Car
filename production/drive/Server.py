@@ -7,6 +7,7 @@ import time
 from test import Detector
 
 cropped = 0
+result = []
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -23,15 +24,29 @@ def camera():
     print('Starting cam thread')
     cap = cv2.VideoCapture(0)
     global cropped
+    global result
     while True:
         ret, frame = cap.read()
-        #resize  frame to needed size
         frame_size = (448,448)
         cropped = cv2.resize(frame, frame_size)
+        for i in range(len(result)):
+            x = int(result[i][1])
+            y = int(result[i][2])
+            w = int(result[i][3] / 2)
+            h = int(result[i][4] / 2)
+            cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+            cv2.rectangle(cropped, (x - w, y - h - 20),
+                          (x + w, y - h), (125, 125, 125), -1)
+            lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+            cv2.putText(
+                cropped, result[i][0] + ' : %.2f' % result[i][5],
+                (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                (0, 0, 0), 1, lineType)
+            cv2.imshow('Image', cropped)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+
         #feed cropped frame into neural network
-        cv2.imshow('frame',cropped)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
 
 def network():
     #waiting for client to connect. If more than one client look for another solution currently
@@ -54,13 +69,30 @@ def network():
         time.sleep(1/20)
         #data abspeichern in einem array
 
+
+def draw_result(img, result):
+    print(result)
+    for i in range(len(result)):
+        x = int(result[i][1])
+        y = int(result[i][2])
+        w = int(result[i][3] / 2)
+        h = int(result[i][4] / 2)
+        cv2.rectangle(img, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+        cv2.rectangle(img, (x - w, y - h - 20),
+                      (x + w, y - h), (125, 125, 125), -1)
+        lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+        cv2.putText(
+            img, result[i][0] + ' : %.2f' % result[i][5],
+            (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+            (0, 0, 0), 1, lineType)
+
+
 def nnw():
     det = Detector()
+    global result
     while True:
-        det.process_img(cropped)
-    return
-
-def init_nnw():
+        result = det.process_img(cropped)
+        #draw_result(cropped, det.process_img(cropped))
 
     return
 
@@ -68,9 +100,7 @@ def init_nnw():
 cam = threading.Thread(name='Camera', target=camera)
 network = threading.Thread(name='Network', target=network)
 nnw = threading.Thread(name='nnw', target=nnw)
-nnw_init = threading.Thread(name='nnw_init', target=init_nnw)
 
 cam.start()
 network.start()
-nnw_init.start()
 nnw.start()
