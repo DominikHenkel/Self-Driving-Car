@@ -29,22 +29,23 @@ def camera():
         ret, frame = cap.read()
         frame_size = (448,448)
         cropped = cv2.resize(frame, frame_size)
-        for i in range(len(result)):
-            x = int(result[i][1])
-            y = int(result[i][2])
-            w = int(result[i][3] / 2)
-            h = int(result[i][4] / 2)
-            cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
-            cv2.rectangle(cropped, (x - w, y - h - 20),
-                          (x + w, y - h), (125, 125, 125), -1)
-            lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
-            cv2.putText(
-                cropped, result[i][0] + ' : %.2f' % result[i][5],
-                (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                (0, 0, 0), 1, lineType)
-            cv2.imshow('Image', cropped)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+        cropped = cv2.flip( cropped, 0 )
+        # for i in range(len(result)):
+        #     x = int(result[i][1])
+        #     y = int(result[i][2])
+        #     w = int(result[i][3] / 2)
+        #     h = int(result[i][4] / 2)
+        #     cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+        #     cv2.rectangle(cropped, (x - w, y - h - 20),
+        #                   (x + w, y - h), (125, 125, 125), -1)
+        #     lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+        #     cv2.putText(
+        #         cropped, result[i][0] + ' : %.2f' % result[i][5],
+        #         (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+        #         (0, 0, 0), 1, lineType)
+        cv2.imshow('Image', cropped)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
         #feed cropped frame into neural network
 
@@ -54,45 +55,43 @@ def network():
     print('Starting network thread')
     data, address = sock.recvfrom(100)
     while True:
-        # data, address = sock.recvfrom(131072)
-        # if(data.isdigit()):
-        #     print('is degree')
-        #     motor_data.append(data)
-        # else:
-        #     print('is image')
-        #     image_data.append(data)
-        # print("received message:", data)s
-
-        #send neural network output here
-        #we can acceess the global variable 'cropped' from here
         sock.sendto(b'90', address)
         time.sleep(1/20)
-        #data abspeichern in einem array
+        data, address = sock.recvfrom(131072)
+        if(data.isdigit()):
+            print('is degree')
+            #motor_data.append(data)
+        else:
+            print('is image')
+            #image_data.append(data)
+        print("received message:", data)
 
 
 def draw_result(img, result):
-    print(result)
-    for i in range(len(result)):
-        x = int(result[i][1])
-        y = int(result[i][2])
-        w = int(result[i][3] / 2)
-        h = int(result[i][4] / 2)
-        cv2.rectangle(img, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
-        cv2.rectangle(img, (x - w, y - h - 20),
-                      (x + w, y - h), (125, 125, 125), -1)
-        lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
-        cv2.putText(
-            img, result[i][0] + ' : %.2f' % result[i][5],
-            (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-            (0, 0, 0), 1, lineType)
+    i = 5
+   print(len(result))
+    # for i in range(len(result)):
+    #     x = int(result[i][1])
+    #     y = int(result[i][2])
+    #     w = int(result[i][3] / 2)
+    #     h = int(result[i][4] / 2)
+    #     cv2.rectangle(img, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+    #     cv2.rectangle(img, (x - w, y - h - 20),
+    #                   (x + w, y - h), (125, 125, 125), -1)
+    #     lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+    #     cv2.putText(
+    #         img, result[i][0] + ' : %.2f' % result[i][5],
+    #         (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+    #         (0, 0, 0), 1, lineType)
 
 
 def nnw():
     det = Detector()
     global result
     while True:
-        result = det.process_img(cropped)
-        #draw_result(cropped, det.process_img(cropped))
+        timeThen = time.time()
+        draw_result(cropped, det.process_img(cropped))
+        #print(time.time() - timeThen)
 
     return
 
