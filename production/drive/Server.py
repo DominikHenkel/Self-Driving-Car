@@ -30,7 +30,7 @@ def camera():
         frame_size = (448,448)
         cropped = cv2.resize(frame, frame_size)
         cropped = cv2.flip( cropped, 0 )
-        print("length ",len(result))
+        # print(result)
         for i in range(len(result)):
             x = int(result[i][1])
             y = int(result[i][2])
@@ -44,11 +44,15 @@ def camera():
                 cropped, result[i][0] + ' : %.2f' % result[i][5],
                 (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
                 (0, 0, 0), 1, lineType)
+            print(getRotation(160,x))
+
         cv2.imshow('Image', cropped)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
         #feed cropped frame into neural network
+def getRotation(maxAngle, x):
+    return maxAngle*(((x/448)-0.5)/0.5)
 
 def network():
     #waiting for client to connect. If more than one client look for another solution currently
