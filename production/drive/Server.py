@@ -30,19 +30,20 @@ def camera():
         frame_size = (448,448)
         cropped = cv2.resize(frame, frame_size)
         cropped = cv2.flip( cropped, 0 )
-        # for i in range(len(result)):
-        #     x = int(result[i][1])
-        #     y = int(result[i][2])
-        #     w = int(result[i][3] / 2)
-        #     h = int(result[i][4] / 2)
-        #     cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
-        #     cv2.rectangle(cropped, (x - w, y - h - 20),
-        #                   (x + w, y - h), (125, 125, 125), -1)
-        #     lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
-        #     cv2.putText(
-        #         cropped, result[i][0] + ' : %.2f' % result[i][5],
-        #         (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-        #         (0, 0, 0), 1, lineType)
+        print("length ",len(result))
+        for i in range(len(result)):
+            x = int(result[i][1])
+            y = int(result[i][2])
+            w = int(result[i][3] / 2)
+            h = int(result[i][4] / 2)
+            cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+            cv2.rectangle(cropped, (x - w, y - h - 20),
+                          (x + w, y - h), (125, 125, 125), -1)
+            lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+            cv2.putText(
+                cropped, result[i][0] + ' : %.2f' % result[i][5],
+                (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                (0, 0, 0), 1, lineType)
         cv2.imshow('Image', cropped)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -67,9 +68,7 @@ def network():
         print("received message:", data)
 
 
-def draw_result(img, result):
-    i = 5
-   print(len(result))
+#def draw_result(img, result):
     # for i in range(len(result)):
     #     x = int(result[i][1])
     #     y = int(result[i][2])
@@ -89,8 +88,8 @@ def nnw():
     det = Detector()
     global result
     while True:
-        timeThen = time.time()
-        draw_result(cropped, det.process_img(cropped))
+        result = det.process_img(cropped)
+        #draw_result(cropped, det.process_img(cropped))
         #print(time.time() - timeThen)
 
     return
