@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import time
 from test import Detector
+from random import randint
 
 cropped = 0
 result = []
@@ -54,18 +55,20 @@ def network():
     #waiting for client to connect. If more than one client look for another solution currently
     #only supports the test client
     print('Starting network thread')
-    data, address = sock.recvfrom(100)
+    data, address = sock.recvfrom(1000)
+    print('connected ', address, ' ', data)
     while True:
-        sock.sendto(b'90', address)
-        time.sleep(1/20)
-        data, address = sock.recvfrom(131072)
-        if(data.isdigit()):
-            print('is degree')
-            #motor_data.append(data)
-        else:
-            print('is image')
-            #image_data.append(data)
-        print("received message:", data)
+        rand = randint(-180,180)
+        sock.sendto(bytes(str(rand),'utf-8'), address)
+        time.sleep(5)
+        # data, address = sock.recvfrom(131072)
+        # if(data.isdigit()):
+        #     print('is degree')
+        #     #motor_data.append(data)
+        # else:
+        #     print('is image')
+        #     #image_data.append(data)
+        # print("received message:", data)
 
 
 #def draw_result(img, result):
@@ -99,6 +102,6 @@ cam = threading.Thread(name='Camera', target=camera)
 network = threading.Thread(name='Network', target=network)
 nnw = threading.Thread(name='nnw', target=nnw)
 
-cam.start()
+#cam.start()
 network.start()
-nnw.start()
+#nnw.start()
