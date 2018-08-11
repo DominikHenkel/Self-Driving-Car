@@ -6,9 +6,12 @@ import numpy as np
 import time
 from test import Detector
 from random import randint
+from Map import Map
+import threading
 
 cropped = 0
 result = []
+map
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -37,15 +40,23 @@ def camera():
             y = int(result[i][2])
             w = int(result[i][3] / 2)
             h = int(result[i][4] / 2)
-            cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
-            cv2.rectangle(cropped, (x - w, y - h - 20),
-                          (x + w, y - h), (125, 125, 125), -1)
-            lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
-            cv2.putText(
-                cropped, result[i][0] + ' : %.2f' % result[i][5],
-                (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                (0, 0, 0), 1, lineType)
-            print(getRotation(160,x))
+            map.add_entity(x,y,w,h,i,result[i][0],448)
+            # cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+            # cv2.rectangle(cropped, (x - w, y - h - 20),
+            #               (x + w, y - h), (125, 125, 125), -1)
+            # lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+            # cv2.putText(
+            #     cropped, result[i][0] + ' : %.2f' % result[i][5],
+            #     (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+            #     (0, 0, 0), 1, lineType)
+
+        id = map.id
+        cv2.rectangle(cropped, (result[id][1] - result[id][3] / 2, result[id][2] - result[id][4] / 2 - 20),
+                       (result[id][1] + result[id][3] / 2, result[id][2] - result[id][4] / 2), (125, 125, 125), -1)
+        cv2.putText(
+             cropped, result[id][0] + ' : %.2f' % result[id][5],
+             (result[id][1] - result[id][3] / 2 + 5, result[id][2] - result[id][4] / 2 - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+             (0, 0, 0), 1, lineType)
 
         cv2.imshow('Image', cropped)
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -90,6 +101,9 @@ def network():
     #         (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
     #         (0, 0, 0), 1, lineType)
 
+def map_t():
+    global map
+    map = Map()
 
 def nnw():
     det = Detector()
@@ -101,11 +115,12 @@ def nnw():
 
     return
 
-
+map = threading.Thread(name='Map', target=map_t)
 cam = threading.Thread(name='Camera', target=camera)
 network = threading.Thread(name='Network', target=network)
 nnw = threading.Thread(name='nnw', target=nnw)
 
-#cam.start()
+map.start()
+cam.start()
 network.start()
-#nnw.start()
+nnw.start()
