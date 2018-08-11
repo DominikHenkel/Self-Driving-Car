@@ -8,7 +8,6 @@ from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoi
 
 
 class Detector(object):
-
     def __init__(self):
         net = YOLONet()
         weight_file = os.path.join("data", 'weights', 'YOLO_small.ckpt')

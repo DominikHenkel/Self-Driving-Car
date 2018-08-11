@@ -4,12 +4,14 @@ import threading
 import cv2
 import numpy as np
 import time
-from test import Detector
+import copy
+from ObjectDetector import Detector
 from random import randint
 from Map import Map
 import threading
 
-cropped = 0
+deg = 0
+imageCopy = 0
 result = []
 map
 
@@ -18,88 +20,95 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server_address = ('',1337)
 sock.bind(server_address)
 
-
-#motor_data = []
-#image_data = []
-
 print("port " + str(server_address[1]) + " bound to " + server_address[0])
 
 def camera():
+    global result
+    global deg
+    global imageCopy
+
     print('Starting cam thread')
     cap = cv2.VideoCapture(0)
-    global cropped
-    global result
+    start = 1021
+    secondTimer = time.time()
+    fps = 0
+    currentFps = 0
+    resultCopy = []
+    deg = 0
     while True:
+        fps = fps +1
+        if((time.time() -1) > secondTimer):
+            secondTimer = time.time()
+            print(fps)
+            currentFps = fps
+            fps = 0
+
         ret, frame = cap.read()
-        frame_size = (448,448)
-        cropped = cv2.resize(frame, frame_size)
-        cropped = cv2.flip( cropped, 0 )
-        # print(result)
-        for i in range(len(result)):
-            x = int(result[i][1])
-            y = int(result[i][2])
-            w = int(result[i][3] / 2)
-            h = int(result[i][4] / 2)
+        frame = cv2.resize(frame,(448,448))
+        start = start + 30
+        path = "C:/Users/jalak/Desktop/car/Self-Driving-Car/production/drive/pics/0" + str(start) + ".jpg"
+        #frame = cv2.imread(path,-1)
+        imageCopy = copy.deepcopy(frame)
+        resultCopy = copy.deepcopy(result)
+        degInner = 0
+        lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+        for i in range(len(resultCopy)):
+            x = int(resultCopy[i][1])
+            y = int(resultCopy[i][2])
+            w = int(resultCopy[i][3] / 2)
+            h = int(resultCopy[i][4] / 2)
             map.add_entity(x,y,w,h,i,result[i][0],448)
-            # cv2.rectangle(cropped, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
-            # cv2.rectangle(cropped, (x - w, y - h - 20),
+            # cv2.rectangle(imageCopy, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+            # cv2.rectangle(imageCopy, (x - w, y - h - 20),
             #               (x + w, y - h), (125, 125, 125), -1)
-            # lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
             # cv2.putText(
-            #     cropped, result[i][0] + ' : %.2f' % result[i][5],
+            #         imageCopy, resultCopy[i][0] + ' : %.2f' % resultCopy[i][5],
             #     (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
             #     (0, 0, 0), 1, lineType)
-
+            # degInner = int(getRotation(160,x))
+            # print(degInner, "   ", x)
+            #TODO only get deg of the car
         id = map.id
-        cv2.rectangle(cropped, (result[id][1] - result[id][3] / 2, result[id][2] - result[id][4] / 2 - 20),
-                       (result[id][1] + result[id][3] / 2, result[id][2] - result[id][4] / 2), (125, 125, 125), -1)
+        cv2.rectangle(imageCopy, (resultCopy[id][1] - resultCopy[id][3] / 2, resultCopy[id][2] - resultCopy[id][4] / 2 - 20),
+                       (resultCopy[id][1] + resultCopy[id][3] / 2, resultCopy[id][2] - resultCopy[id][4] / 2), (125, 125, 125), -1)
         cv2.putText(
-             cropped, result[id][0] + ' : %.2f' % result[id][5],
-             (result[id][1] - result[id][3] / 2 + 5, result[id][2] - result[id][4] / 2 - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+             imageCopy, resultCopy[id][0] + ' : %.2f' % resultCopy[id][5],
+             (resultCopy[id][1] - resultCopy[id][3] / 2 + 5, resultCopy[id][2] - resultCopy[id][4] / 2 - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
              (0, 0, 0), 1, lineType)
+        degInner = int(getRotation(160,resultCopy[id][1]))
 
-        cv2.imshow('Image', cropped)
+        if(degInner != 0):
+            deg = degInner
+        cv2.rectangle(imageCopy, (0,0),(1200,35),(0, 0, 0),-1)
+        fpsString = "FPS: {}".format(currentFps)
+        if(len(resultCopy) == 0):
+            resultString = "NONE"
+        else:
+            resultString = resultCopy[0][0]
+        if(deg < 0):
+            wholeString = fpsString + " | Objekt: " + str(resultString) + " | Lenkrad: " + str(-deg) + " Grad nach links"
+        elif(deg > 0):
+            wholeString = fpsString + " | Objekt: " + str(resultString) + " | Lenkrad: " + str(deg) + " Grad nach rechts"
+        else:
+            wholeString = fpsString + " Kein Objekt erkannt"
+        cv2.putText(imageCopy, str(wholeString), (5,23), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(50,150,250), 2, lineType)
+        #time.sleep(3)
+        cv2.imshow('Kamera + Neuronales Netz', cv2.resize(imageCopy,(1280,1024)))
+        time.sleep(0.5)
+
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-        #feed cropped frame into neural network
 def getRotation(maxAngle, x):
     return maxAngle*(((x/448)-0.5)/0.5)
 
 def network():
-    #waiting for client to connect. If more than one client look for another solution currently
-    #only supports the test client
     print('Starting network thread')
     data, address = sock.recvfrom(1000)
     print('connected ', address, ' ', data)
     while True:
-        rand = randint(-180,180)
-        sock.sendto(bytes(str(rand),'utf-8'), address)
-        time.sleep(5)
-        # data, address = sock.recvfrom(131072)
-        # if(data.isdigit()):
-        #     print('is degree')
-        #     #motor_data.append(data)
-        # else:
-        #     print('is image')
-        #     #image_data.append(data)
-        # print("received message:", data)
-
-
-#def draw_result(img, result):
-    # for i in range(len(result)):
-    #     x = int(result[i][1])
-    #     y = int(result[i][2])
-    #     w = int(result[i][3] / 2)
-    #     h = int(result[i][4] / 2)
-    #     cv2.rectangle(img, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
-    #     cv2.rectangle(img, (x - w, y - h - 20),
-    #                   (x + w, y - h), (125, 125, 125), -1)
-    #     lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
-    #     cv2.putText(
-    #         img, result[i][0] + ' : %.2f' % result[i][5],
-    #         (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-    #         (0, 0, 0), 1, lineType)
+        sock.sendto(bytes(str(deg),'utf-8'), address)
+        time.sleep(1/60)
 
 def map_t():
     global map
@@ -109,11 +118,7 @@ def nnw():
     det = Detector()
     global result
     while True:
-        result = det.process_img(cropped)
-        #draw_result(cropped, det.process_img(cropped))
-        #print(time.time() - timeThen)
-
-    return
+        result = det.process_img(imageCopy)
 
 map = threading.Thread(name='Map', target=map_t)
 cam = threading.Thread(name='Camera', target=camera)
