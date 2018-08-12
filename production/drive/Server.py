@@ -7,7 +7,6 @@ import time
 import copy
 from ObjectDetector import Detector
 from random import randint
-# from Map import Map
 
 deg = 0
 imageCopy = 0
@@ -46,11 +45,11 @@ def camera():
             currentFps = fps
             fps = 0
 
-        # ret, frame = cap.read()
-        # frame = cv2.resize(frame,(448,448))
+        ret, frame = cap.read()
+        frame = cv2.resize(frame,(448,448))
         start = start + 30
-        path = "C:/Users/Dominik/Self-Driving-Car/production/drive/pics/0" + str(start) + ".jpg"
-        frame = cv2.imread(path,-1)
+        path = "C:/Users/jalak/Desktop/car/Self-Driving-Car/production/drive/pics/0" + str(start) + ".jpg"
+        #frame = cv2.imread(path,-1)
         imageCopy = copy.deepcopy(frame)
         resultCopy = copy.deepcopy(result)
         degInner = 0
@@ -112,7 +111,6 @@ def camera():
         #print(map.getImage())
         # imageCopy[y_offset:y_offset+map.getImage().shape[0], x_offset:x_offset+map.getImage().shape[1]] = map.getImage()
         cv2.imshow('Kamera + Neuronales Netz', imageCopy)
-        time.sleep(1.0)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
