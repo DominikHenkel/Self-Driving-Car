@@ -25,9 +25,10 @@ def camera():
     global result
     global deg
     global imageCopy
+    global frame
     cap = cv2.VideoCapture(0)
-    cap.set(3,448)
-    cap.set(4,448)
+    #cap.set(3,448)
+    #cap.set(4,448)
     start = 1021
     secondTimer = time.time()
     fps = 0
@@ -52,6 +53,17 @@ def camera():
         resultCopy = copy.deepcopy(result)
         degInner = 0
         lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
+        # for i in range(len(resultCopy)):
+        #     x = int(resultCopy[i][1])
+        #     y = int(resultCopy[i][2])
+        #     w = int(resultCopy[i][3] / 2)
+        #     h = int(resultCopy[i][4] / 2)
+        #     cv2.rectangle(imageCopy, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
+        #     cv2.rectangle(imageCopy, (x - w, y - h - 20), (x + w, y - h), (125, 125, 125), -1)
+        #     cv2.putText(
+        #             imageCopy, resultCopy[i][0] + ' : %.2f' % resultCopy[i][5],
+        #         (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+        #         (0, 0, 0), 1, lineType)
         for i in range(len(resultCopy)):
             x = int(resultCopy[i][1])
             y = int(resultCopy[i][2])
@@ -59,12 +71,15 @@ def camera():
             h = int(resultCopy[i][4] / 2)
             map.add_entity(x,y,w,h,i,result[i][0],448)
         id = map.getTotalId()
+        if(len(resultCopy) != 0):
+            degInner = int(getRotation(160, int(resultCopy[id][1])))
+        #print(degInner, "   ", x)
         if(len(resultCopy) > 0):
-            cv2.rectangle(imageCopy, (resultCopy[id][1] - resultCopy[id][3] / 2, resultCopy[id][2] - resultCopy[id][4] / 2 - 20),
-                           (resultCopy[id][1] + resultCopy[id][3] / 2, resultCopy[id][2] - resultCopy[id][4] / 2), (125, 125, 125), -1)
+            cv2.rectangle(imageCopy, (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2 - 20)),
+                           (int(resultCopy[id][1]) + int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2)), (125, 125, 125), -1)
             cv2.putText(
                  imageCopy, resultCopy[id][0] + ' : %.2f' % resultCopy[id][5],
-                 (resultCopy[id][1] - resultCopy[id][3] / 2 + 5, resultCopy[id][2] - resultCopy[id][4] / 2 - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                 (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2) + 5, int(resultCopy[id][2]) - int(resultCopy[id][4] / 2) - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
                  (0, 0, 0), 1, lineType)
             degInner = int(getRotation(160,resultCopy[id][1]))
         if(degInner != 0):
@@ -115,7 +130,8 @@ def nnw():
     det = Detector()
     global result
     while True:
-        result = det.process_img(imageCopy)
+        if(len(frame) != 0):
+            result = det.process_img(frame)
 
 map_t = threading.Thread(name='Map', target=map_t)
 cam = threading.Thread(name='Camera', target=camera)
