@@ -7,7 +7,7 @@ import time
 import copy
 from ObjectDetector import Detector
 from random import randint
-from Map import Map
+# from Map import Map
 
 deg = 0
 imageCopy = 0
@@ -36,6 +36,8 @@ def camera():
     resultCopy = []
     deg = 0
     id = 0
+    act_car_x =0
+    act_car_y =0
     while True:
         fps = fps +1
         if((time.time() -1) > secondTimer):
@@ -44,11 +46,11 @@ def camera():
             currentFps = fps
             fps = 0
 
-        ret, frame = cap.read()
-        frame = cv2.resize(frame,(448,448))
+        # ret, frame = cap.read()
+        # frame = cv2.resize(frame,(448,448))
         start = start + 30
-        path = "C:/Users/jalak/Desktop/car/Self-Driving-Car/production/drive/pics/0" + str(start) + ".jpg"
-        #frame = cv2.imread(path,-1)
+        path = "C:/Users/Dominik/Self-Driving-Car/production/drive/pics/0" + str(start) + ".jpg"
+        frame = cv2.imread(path,-1)
         imageCopy = copy.deepcopy(frame)
         resultCopy = copy.deepcopy(result)
         degInner = 0
@@ -64,19 +66,26 @@ def camera():
         #             imageCopy, resultCopy[i][0] + ' : %.2f' % resultCopy[i][5],
         #         (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
         #         (0, 0, 0), 1, lineType)
+        min = 10000
         for i in range(len(resultCopy)):
             x = int(resultCopy[i][1])
             y = int(resultCopy[i][2])
             w = int(resultCopy[i][3] / 2)
             h = int(resultCopy[i][4] / 2)
-            map.add_entity(x,y,w,h,i,result[i][0],448)
-        id = map.getTotalId()
+            tmp_min = abs(act_car_x-x)+abs(act_car_y-y)
+            if(tmp_min < min):
+                min = tmp_min
+                id = i
+            # map.add_entity(x,y,w,h,i,result[i][0],448)
+        # id = map.getTotalId()
+        # map.entities.clear()
+
         if(len(resultCopy) != 0):
             degInner = int(getRotation(160, int(resultCopy[id][1])))
         #print(degInner, "   ", x)
-        if(len(resultCopy) > 0):
-            cv2.rectangle(imageCopy, (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2 - 20)),
-                           (int(resultCopy[id][1]) + int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2)), (125, 125, 125), -1)
+        # print('id',id)
+        if(len(resultCopy) > 0 and id>=0):
+            cv2.rectangle(imageCopy, (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2)), (int(resultCopy[id][1]) + int(resultCopy[id][3] / 2), int(resultCopy[id][2]) + int(resultCopy[id][4] / 2)), (0, 255, 0), 2)
             cv2.putText(
                  imageCopy, resultCopy[id][0] + ' : %.2f' % resultCopy[id][5],
                  (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2) + 5, int(resultCopy[id][2]) - int(resultCopy[id][4] / 2) - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
@@ -101,9 +110,9 @@ def camera():
         x_offset=875
         y_offset=620
         #print(map.getImage())
-        imageCopy[y_offset:y_offset+map.getImage().shape[0], x_offset:x_offset+map.getImage().shape[1]] = map.getImage()
+        # imageCopy[y_offset:y_offset+map.getImage().shape[0], x_offset:x_offset+map.getImage().shape[1]] = map.getImage()
         cv2.imshow('Kamera + Neuronales Netz', imageCopy)
-        # time.sleep(0.5)
+        time.sleep(1.0)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -133,12 +142,12 @@ def nnw():
         if(len(frame) != 0):
             result = det.process_img(frame)
 
-map_t = threading.Thread(name='Map', target=map_t)
+# map_t = threading.Thread(name='Map', target=map_t)
 cam = threading.Thread(name='Camera', target=camera)
 network = threading.Thread(name='Network', target=network)
 nnw = threading.Thread(name='nnw', target=nnw)
 
-map_t.start()
+# map_t.start()
 cam.start()
 network.start()
 nnw.start()
