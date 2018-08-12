@@ -21,11 +21,13 @@ sock.bind(server_address)
 print("port " + str(server_address[1]) + " bound to " + server_address[0])
 
 def camera():
+    print('Starting cam thread')
     global result
     global deg
     global imageCopy
-    print('Starting cam thread')
     cap = cv2.VideoCapture(0)
+    cap.set(3,448)
+    cap.set(4,448)
     start = 1021
     secondTimer = time.time()
     fps = 0
@@ -80,9 +82,13 @@ def camera():
         else:
             wholeString = fpsString + " Kein Objekt erkannt"
         cv2.putText(imageCopy, str(wholeString), (5,23), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(50,150,250), 2, lineType)
-        #time.sleep(3)
-        cv2.imshow('Kamera + Neuronales Netz', cv2.resize(imageCopy,(1280,1024)))
-        time.sleep(0.5)
+        imageCopy = cv2.resize(imageCopy,(1280,1024))
+        x_offset=875
+        y_offset=620
+        #print(map.getImage())
+        imageCopy[y_offset:y_offset+map.getImage().shape[0], x_offset:x_offset+map.getImage().shape[1]] = map.getImage()
+        cv2.imshow('Kamera + Neuronales Netz', imageCopy)
+        # time.sleep(0.5)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -104,8 +110,6 @@ def map_t():
     map = Map()
     while True:
         map.compute2DMap()
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
 
 def nnw():
     det = Detector()
@@ -119,6 +123,6 @@ network = threading.Thread(name='Network', target=network)
 nnw = threading.Thread(name='nnw', target=nnw)
 
 map_t.start()
-network.start()
 cam.start()
+network.start()
 nnw.start()

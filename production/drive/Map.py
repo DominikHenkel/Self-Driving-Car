@@ -25,10 +25,12 @@ class Map(object):
     act_car_x = 150
     act_car_y = 240
     total_id = 0
+    image = np.zeros((image_shape, image_shape, 3), np.uint8)
 
     #def __init__(self):
 
     def compute2DMap(self):
+        self.entities.clear()
         image = np.zeros((self.image_shape, self.image_shape, 3), np.uint8)
         for i in range(6):
             cv2.line(image, (0,(i+1)*200), (image.shape[1],(i+1)*200),(255,255,0), 3)
@@ -38,8 +40,7 @@ class Map(object):
             cv2.rectangle(image, (self.entities[i].x - 50, self.entities[i].y - 50), (self.entities[i].x + 50, self.entities[i].y + 50), (0, 255, 0), 2)
             cv2.putText(image, self.entities[i].obj+str(self.entities[i].id),(self.entities[i].x-50,self.entities[i].y-55), cv2.FONT_HERSHEY_SIMPLEX, 1,(255,255,255),2,cv2.LINE_AA)
         self.total_id = self.detect_act_car()
-        cv2.imshow('Image', image)
-        self.entities.clear()
+        self.image = image
 
     def add_entity(self,x,y,w,h,id,obj, image_shape):
         if(obj == "car"):
@@ -56,6 +57,9 @@ class Map(object):
                 min = tmp_min
                 id = self.entities[i].id
         return id
+
+    def getImage(self):
+        return self.image
 
     def getTotalId(self):
         return self.total_id
