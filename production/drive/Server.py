@@ -50,8 +50,8 @@ def camera():
         ret, frame = cap.read()
         frame = cv2.resize(frame,(448,448))
         start = start + 30
-        path = "C:/Users/Dominik/Self-Driving-Car/production/drive/pics/0" + str(start) + ".jpg"
-        # frame = cv2.imread(path,-1)
+        path = "C:/Users/jalak/Desktop/car/Self-Driving-Car/production/drive/pics/0" + str(start) + ".jpg"
+        #frame = cv2.imread(path,-1)
         imageCopy = copy.deepcopy(frame)
         resultCopy = copy.deepcopy(result)
         degInner = 0
