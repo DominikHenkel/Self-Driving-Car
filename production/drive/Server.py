@@ -11,9 +11,15 @@ from random import randint
 deg = 0
 imageCopy = 0
 result = []
+<<<<<<< HEAD
 person_left = False
 x_old = -1
 person_right = False
+=======
+personLeft = False
+personRight = False
+maxSteeringAngle = 540
+>>>>>>> d7953bea5a038e6be66769e0b3e864df4e5f99f8
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -30,8 +36,6 @@ def camera():
     global frame
     global x_old
     cap = cv2.VideoCapture(0)
-    #cap.set(3,448)
-    #cap.set(4,448)
     start = 1021
     secondTimer = time.time()
     fps = 0
@@ -74,21 +78,25 @@ def camera():
             if(resultCopy[i][0]=="person"):
                 cv2.rectangle(imageCopy, (x - w, y - h), (x + w, y + h), (0, 0, 139), 2)
                 if(x>224):
-                    person_right = True
-                    person_left = False
+                    personRight = True
+                    personLeft = False
                 else:
-                    person_right = False
-                    person_left = True
+                    personRight = False
+                    personLeft = True
             else:
-                person_left = False
-                person_right = False
+                personRight = False
+                personLeft = False
                 cv2.rectangle(imageCopy, (x - w, y - h), (x + w, y + h), (0, 255, 0), 2)
             cv2.putText(
                  imageCopy, resultCopy[i][0] + ' : %.2f' % resultCopy[i][5],
                  (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0, 0, 0), 1, lineType)
+<<<<<<< HEAD
             # print('Person rechts', person_right, 'links', person_left)
         if(id!=-1):
             cv2.rectangle(imageCopy, (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2)), (int(resultCopy[id][1]) + int(resultCopy[id][3] / 2), int(resultCopy[id][2]) + int(resultCopy[id][4] / 2)), (255, 0, 0), 2)
+=======
+            print('Person rechts', personRight, 'Person links', personLeft)
+>>>>>>> d7953bea5a038e6be66769e0b3e864df4e5f99f8
         # if(len(resultCopy) != 0):
         #     degInner = int(getRotation(160, int(resultCopy[id][1])))
         #     degInner = int(getRotation(160,resultCopy[id][1]))
@@ -108,8 +116,6 @@ def camera():
             wholeString = fpsString + " Kein Objekt erkannt"
         cv2.putText(imageCopy, str(wholeString), (5,23), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(50,150,250), 2, lineType)
         imageCopy = cv2.resize(imageCopy,(1280,1024))
-        x_offset=875
-        y_offset=620
         cv2.imshow('Kamera + Neuronales Netz', imageCopy)
         # time.sleep(1.0)
 
@@ -123,8 +129,24 @@ def network():
     print('Starting network thread')
     data, address = sock.recvfrom(1000)
     print('connected ', address, ' ', data)
+    startTime = 0
+    endTime = 0
+    timerStarted = False
     while True:
+        if(personLeft):
+            if(timerStarted):
+                deg = -maxSteeringAngle
+            else:
+                startTime = time.time()
+                timerStarted = True
+        else:
+            if(timerStarted):
+                endTime = time.time()
+        elif(personRight):
+            deg = maxSteeringAngle
+        else:
         sock.sendto(bytes(str(deg),'utf-8'), address)
+        print(deg)
         time.sleep(1/60)
 
 def map_t():
