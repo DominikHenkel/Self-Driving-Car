@@ -12,6 +12,7 @@ deg = 0
 imageCopy = 0
 result = []
 person_left = False
+x_old = -1
 person_right = False
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -27,6 +28,7 @@ def camera():
     global deg
     global imageCopy
     global frame
+    global x_old
     cap = cv2.VideoCapture(0)
     #cap.set(3,448)
     #cap.set(4,448)
@@ -57,11 +59,18 @@ def camera():
         degInner = 0
         lineType = cv2.LINE_AA if cv2.__version__ > '3' else cv2.CV_AA
         min = 10000
+        id = -1
+        value = 0
         for i in range(len(resultCopy)):
             x = int(resultCopy[i][1])
             y = int(resultCopy[i][2])
             w = int(resultCopy[i][3] / 2)
             h = int(resultCopy[i][4] / 2)
+            if(w*h > value):
+                if(x_old == -1 or abs(x-x_old)<70):
+                        x_old = x
+                        value = w*h
+                        id = i
             if(resultCopy[i][0]=="person"):
                 cv2.rectangle(imageCopy, (x - w, y - h), (x + w, y + h), (0, 0, 139), 2)
                 if(x>224):
@@ -77,7 +86,9 @@ def camera():
             cv2.putText(
                  imageCopy, resultCopy[i][0] + ' : %.2f' % resultCopy[i][5],
                  (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0, 0, 0), 1, lineType)
-            print('Person rechts', person_right, 'links', person_left)
+            # print('Person rechts', person_right, 'links', person_left)
+        if(id!=-1):
+            cv2.rectangle(imageCopy, (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2)), (int(resultCopy[id][1]) + int(resultCopy[id][3] / 2), int(resultCopy[id][2]) + int(resultCopy[id][4] / 2)), (255, 0, 0), 2)
         # if(len(resultCopy) != 0):
         #     degInner = int(getRotation(160, int(resultCopy[id][1])))
         #     degInner = int(getRotation(160,resultCopy[id][1]))
