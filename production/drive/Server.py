@@ -11,15 +11,12 @@ from random import randint
 deg = 0
 imageCopy = 0
 result = []
-<<<<<<< HEAD
 person_left = False
 x_old = -1
 person_right = False
-=======
 personLeft = False
 personRight = False
 maxSteeringAngle = 540
->>>>>>> d7953bea5a038e6be66769e0b3e864df4e5f99f8
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -90,13 +87,10 @@ def camera():
             cv2.putText(
                  imageCopy, resultCopy[i][0] + ' : %.2f' % resultCopy[i][5],
                  (x - w + 5, y - h - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5,(0, 0, 0), 1, lineType)
-<<<<<<< HEAD
             # print('Person rechts', person_right, 'links', person_left)
         if(id!=-1):
             cv2.rectangle(imageCopy, (int(resultCopy[id][1]) - int(resultCopy[id][3] / 2), int(resultCopy[id][2]) - int(resultCopy[id][4] / 2)), (int(resultCopy[id][1]) + int(resultCopy[id][3] / 2), int(resultCopy[id][2]) + int(resultCopy[id][4] / 2)), (255, 0, 0), 2)
-=======
             print('Person rechts', personRight, 'Person links', personLeft)
->>>>>>> d7953bea5a038e6be66769e0b3e864df4e5f99f8
         # if(len(resultCopy) != 0):
         #     degInner = int(getRotation(160, int(resultCopy[id][1])))
         #     degInner = int(getRotation(160,resultCopy[id][1]))
@@ -133,21 +127,36 @@ def network():
     endTime = 0
     timerStarted = False
     while True:
-        if(personLeft):
-            if(timerStarted):
-                deg = -maxSteeringAngle
-            else:
-                startTime = time.time()
-                timerStarted = True
-        else:
-            if(timerStarted):
-                endTime = time.time()
-        elif(personRight):
-            deg = maxSteeringAngle
-        else:
-        sock.sendto(bytes(str(deg),'utf-8'), address)
-        print(deg)
-        time.sleep(1/60)
+        # if(personLeft):
+        #     if(timerStarted):
+        #         deg = -maxSteeringAngle
+        #     else:
+        #         startTime = time.time()
+        #         timerStarted = True
+        # else:
+        #     if(timerStarted):
+        #         endTime = time.time()
+        # elif(personRight):
+        #     deg = maxSteeringAngle
+        # else:
+        path = "C:/Users/jalak/Desktop/car/Self-Driving-Car/production/drive/pics/02731.jpg"
+        frame = cv2.imread(path,-1)
+        cv2.imshow('asd', frame)
+        k = cv2.waitKey(33)
+        #print(k)
+        if k == 49:
+            sock.sendto(bytes(str(500),'utf-8'), address)
+            time.sleep(1.2)
+            sock.sendto(bytes(str(-500), 'utf-8'), address)
+            time.sleep(2.8)
+            sock.sendto(bytes(str(0),'utf-8'),address)
+            time.sleep(1.2)
+            print('finished')
+            time.sleep(100)
+        #elif k == -1:
+        #    continue
+        #print(did)
+        #print(deg)
 
 def map_t():
     print('Starting map thread')
@@ -163,10 +172,10 @@ def nnw():
         if(len(frame) != 0):
             result = det.process_img(frame)
 
-cam = threading.Thread(name='Camera', target=camera)
+#cam = threading.Thread(name='Camera', target=camera)
 network = threading.Thread(name='Network', target=network)
-nnw = threading.Thread(name='nnw', target=nnw)
+#nnw = threading.Thread(name='nnw', target=nnw)
 
-cam.start()
+#cam.start()
 network.start()
-nnw.start()
+#nnw.start()
